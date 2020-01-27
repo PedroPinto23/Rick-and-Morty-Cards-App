@@ -49,12 +49,25 @@ class _HomeScreenState extends State<HomeScreen> {
             switch (snapshot.connectionState) {
               case ConnectionState.none:
               case ConnectionState.waiting:
-                return Center(
-                  child: Image.asset(
-                    'images/Squanchy_.png',
-                    width: 150,
-                    height: 150,
-                  ),
+                return Material(
+                  type: MaterialType.transparency,
+                  child: Center(
+                      child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Image.asset(
+                        'images/Squanchy_.png',
+                        width: 150,
+                        height: 150,
+                      ),
+                      Text(
+                        "Loading...",
+                        style: GoogleFonts.bangers(
+                            color: Colors.white,
+                            textStyle: TextStyle(fontSize: 35)),
+                      ),
+                    ],
+                  )),
                 );
               default:
                 if (snapshot.hasError) {
