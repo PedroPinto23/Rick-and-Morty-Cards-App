@@ -19,9 +19,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int _page = 1;
+
   Future<Map> _getAPI() async {
-    http.Response res =
-        await http.get('https://rickandmortyapi.com/api/character/');
+    http.Response res = await http
+        .get('https://rickandmortyapi.com/api/character/?page=$_page');
     return json.decode(res.body);
   }
 
@@ -128,13 +130,90 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                           );
                         }, childCount: data.length),
-                      )
+                      ),
+                      SliverToBoxAdapter(
+                          child: Column(
+                        children: <Widget>[
+                          _page > 1
+                              ? Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    RawMaterialButton(
+                                      fillColor: Colors.yellow,
+                                      child: Padding(
+                                          padding: EdgeInsets.all(8),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: <Widget>[
+                                              Icon(
+                                                Icons.arrow_back,
+                                                color: Colors.blue,
+                                                size: 30,
+                                              ),
+                                              Text(
+                                                'BACK',
+                                                style: GoogleFonts.bangers(
+                                                  color: Colors.blue,
+                                                  textStyle:
+                                                      TextStyle(fontSize: 30),
+                                                ),
+                                              ),
+                                            ],
+                                          )),
+                                      onPressed: () {
+                                        setState(() {
+                                          _page--;
+                                        });
+                                      },
+                                      shape: StadiumBorder(),
+                                    )
+                                  ],
+                                )
+                              : Container(),
+                          _page < 25
+                              ? Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>[
+                                    RawMaterialButton(
+                                      fillColor: Colors.yellow,
+                                      child: Padding(
+                                          padding: EdgeInsets.all(8),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: <Widget>[
+                                              Text(
+                                                'NEXT',
+                                                style: GoogleFonts.bangers(
+                                                  color: Colors.blue,
+                                                  textStyle:
+                                                      TextStyle(fontSize: 30),
+                                                ),
+                                              ),
+                                              Icon(
+                                                Icons.arrow_forward,
+                                                color: Colors.blue,
+                                                size: 30,
+                                              ),
+                                            ],
+                                          )),
+                                      onPressed: () {
+                                        setState(() {
+                                          _page++;
+                                        });
+                                      },
+                                      shape: StadiumBorder(),
+                                    )
+                                  ],
+                                )
+                              : Container()
+                        ],
+                      ))
                     ],
                   );
                 }
             }
           },
-        )
+        ),
       ],
     );
   }
@@ -167,6 +246,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         style: GoogleFonts.bangers(
                             color: Colors.blue,
                             textStyle: TextStyle(fontSize: 42)),
+                      ),
+                      Text(
+                        'origin location: ' + data[i]['origin']['name'],
+                        textAlign: TextAlign.center,
+                        style: GoogleFonts.acme(
+                            color: Colors.blue,
+                            textStyle: TextStyle(fontSize: 22)),
                       ),
                       Divider(),
                       Hero(
