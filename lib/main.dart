@@ -170,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ],
                                 )
                               : Container(),
-                              Divider(),
+                          Divider(),
                           _page > 1
                               ? Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
