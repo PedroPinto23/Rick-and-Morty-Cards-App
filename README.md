@@ -4,7 +4,7 @@ A new Flutter project that I created
 
 API used in this project: https://rickandmortyapi.com/
 
-# Demo ScreenShots:
+# Screenshots demo:
 
 <p float="left">
   <img src="/flutter_01.png" width="160" />
