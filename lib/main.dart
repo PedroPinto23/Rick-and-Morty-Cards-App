@@ -134,6 +134,43 @@ class _HomeScreenState extends State<HomeScreen> {
                       SliverToBoxAdapter(
                           child: Column(
                         children: <Widget>[
+                          _page < 25
+                              ? Column(
+                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: <Widget>[
+                                    RawMaterialButton(
+                                      fillColor: Colors.yellow,
+                                      child: Padding(
+                                          padding: EdgeInsets.all(8),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: <Widget>[
+                                              Text(
+                                                'NEXT',
+                                                style: GoogleFonts.bangers(
+                                                  color: Colors.blue,
+                                                  textStyle:
+                                                      TextStyle(fontSize: 30),
+                                                ),
+                                              ),
+                                              Icon(
+                                                Icons.arrow_forward,
+                                                color: Colors.blue,
+                                                size: 30,
+                                              ),
+                                            ],
+                                          )),
+                                      onPressed: () {
+                                        setState(() {
+                                          _page++;
+                                        });
+                                      },
+                                      shape: StadiumBorder(),
+                                    )
+                                  ],
+                                )
+                              : Container(),
+                              Divider(),
                           _page > 1
                               ? Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -170,42 +207,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ],
                                 )
                               : Container(),
-                          _page < 25
-                              ? Column(
-                                  crossAxisAlignment: CrossAxisAlignment.end,
-                                  children: <Widget>[
-                                    RawMaterialButton(
-                                      fillColor: Colors.yellow,
-                                      child: Padding(
-                                          padding: EdgeInsets.all(8),
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: <Widget>[
-                                              Text(
-                                                'NEXT',
-                                                style: GoogleFonts.bangers(
-                                                  color: Colors.blue,
-                                                  textStyle:
-                                                      TextStyle(fontSize: 30),
-                                                ),
-                                              ),
-                                              Icon(
-                                                Icons.arrow_forward,
-                                                color: Colors.blue,
-                                                size: 30,
-                                              ),
-                                            ],
-                                          )),
-                                      onPressed: () {
-                                        setState(() {
-                                          _page++;
-                                        });
-                                      },
-                                      shape: StadiumBorder(),
-                                    )
-                                  ],
-                                )
-                              : Container()
                         ],
                       ))
                     ],
