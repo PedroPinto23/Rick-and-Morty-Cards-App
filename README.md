@@ -2,6 +2,8 @@
 
 A new Flutter project that I created
 
+## 493 characters cards
+
 API used in this project: https://rickandmortyapi.com/
 
 # Screenshots demo:
