@@ -27,6 +27,7 @@ dependencies:
   google_fonts: ^0.3.3
   transparent_image: ^1.0.0
   path_provider: ^1.5.1
+  swipedetector: ^1.2.0
 
 dev_dependencies:
   flutter_test:
