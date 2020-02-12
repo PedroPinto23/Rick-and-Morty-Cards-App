@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
                               child: Container(
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: Colors.black, width: 6)),
+                                        color: Colors.black, width: 5)),
                                 child: FadeInImage.memoryNetwork(
                                   placeholder: kTransparentImage,
                                   image: data[index]['image'],

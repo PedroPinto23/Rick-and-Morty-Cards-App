@@ -51,7 +51,7 @@ class ShowProfile extends StatelessWidget {
                                 child: Container(
                                   decoration: BoxDecoration(
                                       border: Border.all(
-                                          color: Colors.black, width: 6)),
+                                          color: Colors.black, width: 5)),
                                   child: Image.network(
                                     data[i]['image'],
                                     height: 180,
@@ -69,18 +69,21 @@ class ShowProfile extends StatelessWidget {
                               color: Colors.blue,
                               textStyle: TextStyle(fontSize: 22)),
                         ),
+                        Divider(),
                         Text(
                           'Species: ' + data[i]['species'],
                           style: GoogleFonts.acme(
                               color: Colors.blue,
                               textStyle: TextStyle(fontSize: 22)),
                         ),
+                        Divider(),
                         Text(
                           'Gender: ' + data[i]['gender'],
                           style: GoogleFonts.acme(
                               color: Colors.blue,
                               textStyle: TextStyle(fontSize: 22)),
                         ),
+                        Divider(),
                         Text(
                           'Location: ' + data[i]['location']['name'],
                           style: GoogleFonts.acme(
