@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 import 'showProfile.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   int _page = 1;
+  TextEditingController _controller = TextEditingController();
 
   Future<Map> _getAPI() async {
     http.Response res = await http
@@ -96,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                               child: Container(
                                 decoration: BoxDecoration(
                                     border: Border.all(
-                                        color: Colors.black, width: 5)),
+                                        color: Colors.yellow, width: 5)),
                                 child: FadeInImage.memoryNetwork(
                                   placeholder: kTransparentImage,
                                   image: data[index]['image'],

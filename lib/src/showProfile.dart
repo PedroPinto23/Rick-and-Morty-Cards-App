@@ -51,7 +51,7 @@ class ShowProfile extends StatelessWidget {
                                 child: Container(
                                   decoration: BoxDecoration(
                                       border: Border.all(
-                                          color: Colors.black, width: 5)),
+                                          color: Colors.blue, width: 5)),
                                   child: Image.network(
                                     data[i]['image'],
                                     height: 180,
